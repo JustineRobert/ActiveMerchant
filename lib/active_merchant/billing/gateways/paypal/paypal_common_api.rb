@@ -96,7 +96,7 @@ module ActiveMerchant #:nodoc:
       end
 
       def test?
-        @options[:test] || Base.gateway_mode == :test
+        @options[:test] || Base.mode == :test
       end
 
       def reauthorize(money, authorization, options = {})

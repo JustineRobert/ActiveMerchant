@@ -1,10 +1,13 @@
-require 'test_helper'
+require_relative '../../test_helper'
 
 class PaypalTest < Test::Unit::TestCase
   def setup
     @gateway = PaypalGateway.new(fixtures(:paypal_signature))
 
-    @credit_card = credit_card("4381258770269608") # Use a generated CC from the paypal Sandbox
+    # NOTE: replace this with a generated CC card from the sandbox
+    # Pick one of your test account, look at the Funding tab under
+    # its Profile and use the card number listed there
+    @credit_card = credit_card("4381258770269608")
     @declined_card = credit_card('234234234234')
 
     @params = {

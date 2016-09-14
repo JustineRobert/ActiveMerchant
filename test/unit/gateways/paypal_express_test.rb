@@ -382,8 +382,8 @@ class PaypalExpressTest < Test::Unit::TestCase
     assert_equal 'ActiveMerchant_EC', REXML::XPath.first(xml, '//n2:ButtonSource').text
   end
 
-  def test_items_are_included_if_specified_in_build_action_request
-    xml = REXML::Document.new(@gateway.send(:build_action_request, 'Sale', 100, {:items => [
+  def test_items_are_included_if_specified_in_build_sale_or_authorization_request
+    xml = REXML::Document.new(@gateway.send(:build_sale_or_authorization_request, 'Sale', 100, {:items => [
                                             {:name => 'item one', :description => 'item one description', :amount => 10000, :number => 1, :quantity => 3},
                                             {:name => 'item two', :description => 'item two description', :amount => 20000, :number => 2, :quantity => 4}
     ]}))
