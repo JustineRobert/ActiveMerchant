@@ -635,7 +635,6 @@ class BraintreeBlueTest < Test::Unit::TestCase
 
     credit_card = network_tokenization_credit_card('4111111111111111',
       :brand              => 'visa',
-      :transaction_id     => "123",
       :eci                => "05",
       :payment_cryptogram => "111111111100cryptogram",
       :source             => :android_pay,
